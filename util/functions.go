@@ -20,7 +20,7 @@ func Rawurlencode(str string) string {
 	return strings.Replace(url.QueryEscape(str), "+", "%20", -1)
 }
 
-//生成Guid字串
+// 生成Guid字串
 func UniqueId() string {
 	b := make([]byte, 48)
 

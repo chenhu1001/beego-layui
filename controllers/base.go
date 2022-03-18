@@ -26,7 +26,7 @@ func (p *baseController) Prepare() {
 		}
 	}
 
-	//初始化前台页面相关元素
+	// 初始化前台页面相关元素
 	if strings.ToLower(p.controllerName) == "blog" {
 
 		p.Data["actionName"] = strings.ToLower(actionName)
@@ -50,7 +50,7 @@ func (p *baseController) History(msg string, url string) {
 	}
 }
 
-//获取用户IP地址
+// 获取用户IP地址
 func (p *baseController) getClientIp() string {
 	s := strings.Split(p.Ctx.Request.RemoteAddr, ":")
 	return s[0]

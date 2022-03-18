@@ -13,7 +13,7 @@ type AdminController struct {
 	baseController
 }
 
-//配置信息
+// 配置信息
 func (c *AdminController) Config() {
 	var result []*models.Config
 	c.o.QueryTable(new(models.Config).TableName()).All(&result)
@@ -43,7 +43,7 @@ func (c *AdminController) Config() {
 	c.TplName = c.controllerName + "/config.html"
 }
 
-//后台用户登录
+// 后台用户登录
 func (c *AdminController) Login() {
 	if c.Ctx.Request.Method == "POST" {
 		username := c.GetString("username")
@@ -75,12 +75,12 @@ func (c *AdminController) Logout() {
 	c.History("退出登录", "/admin/login.html")
 }
 
-//单页
+// 单页
 func (c *AdminController) About() {
 	c.Ctx.WriteString("About")
 }
 
-//后台首页
+// 后台首页
 func (c *AdminController) Index() {
 	categorys := []*models.Category{}
 	c.o.QueryTable(new(models.Category).TableName()).All(&categorys)
@@ -117,12 +117,12 @@ func (c *AdminController) Index() {
 	c.TplName = c.controllerName + "/list.html"
 }
 
-//主页
+// 主页
 func (c *AdminController) Main() {
 	c.TplName = c.controllerName + "/main.tpl"
 }
 
-//文章
+// 文章
 func (c *AdminController) Article() {
 	categorys := []*models.Category{}
 	c.o.QueryTable(new(models.Category).TableName()).All(&categorys)
@@ -136,7 +136,7 @@ func (c *AdminController) Article() {
 	c.TplName = c.controllerName + "/_form.html"
 }
 
-//上传接口
+// 上传接口
 func (c *AdminController) Upload() {
 	f, h, err := c.GetFile("upFilename")
 	result := make(map[string]interface{})
@@ -166,7 +166,7 @@ func (c *AdminController) Upload() {
 	c.ServeJSON()
 }
 
-//保存
+// 保存
 func (c *AdminController) Save() {
 	post := models.Post{}
 	post.UserId = 1
@@ -212,7 +212,7 @@ func (c *AdminController) Delete() {
 	}
 }
 
-//类目
+// 类目
 func (c *AdminController) Category() {
 	categorys := []*models.Category{}
 	c.o.QueryTable(new(models.Category).TableName()).OrderBy("-id").All(&categorys)
@@ -220,7 +220,7 @@ func (c *AdminController) Category() {
 	c.TplName = c.controllerName + "/category.tpl"
 }
 
-//添加修改类目
+// 添加修改类目
 func (c *AdminController) Categoryadd() {
 	id := c.Input().Get("id")
 	if id != "" {
@@ -232,7 +232,7 @@ func (c *AdminController) Categoryadd() {
 	c.TplName = c.controllerName + "/category_add.tpl"
 }
 
-//处理插入数据的字段
+// 处理插入数据的字段
 func (c *AdminController) CategorySave() {
 	name := c.Input().Get("name")
 	id := c.Input().Get("id")
