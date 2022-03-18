@@ -1,9 +1,9 @@
 package controllers
 
 import (
-	"github.com/chenhu1001/beego-layui/models"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
+	"github.com/chenhu1001/beego-layui/models"
 	"strings"
 )
 
