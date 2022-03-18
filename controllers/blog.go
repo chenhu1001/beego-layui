@@ -67,7 +67,7 @@ func (c *BlogController) Home() {
 	var notices []*models.Post
 	c.o.QueryTable(new(models.Post).TableName()).Filter("category_id", 2).All(&notices)
 	c.Data["notices"] = notices
-	if config.Value == "1" {
+	if config.Value != "1" {
 		c.Ctx.WriteString("系统维护.....")
 		return
 	}
