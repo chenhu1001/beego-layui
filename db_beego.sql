@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost1
+Source Server         : localhost
 Source Server Version : 50726
 Source Host           : localhost:3306
 Source Database       : db_beego
