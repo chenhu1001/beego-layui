@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"github.com/chenhu1001/beego-layui/models"
-	"github.com/chenhu1001/beego-layui/util"
+	"github.com/chenhu1001/beego-layui/utils"
 	"time"
 )
 
@@ -54,7 +54,7 @@ func (c *BlogController) list() {
 	query.OrderBy("-created").Limit(pagesize, offset).All(&list)
 
 	c.Data["list"] = list
-	c.Data["pagebar"] = util.NewPager(page, int(count), pagesize, "/"+c.actionName, true).ToString()
+	c.Data["pagebar"] = utils.NewPager(page, int(count), pagesize, "/"+c.actionName, true).ToString()
 	c.Data["hosts"] = hosts
 }
 

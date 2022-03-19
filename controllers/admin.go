@@ -3,7 +3,7 @@ package controllers
 import (
 	"fmt"
 	"github.com/chenhu1001/beego-layui/models"
-	"github.com/chenhu1001/beego-layui/util"
+	"github.com/chenhu1001/beego-layui/utils"
 	"strconv"
 	"strings"
 	"time"
@@ -55,7 +55,7 @@ func (c *AdminController) Login() {
 			c.History("账号不存在", "")
 		}
 
-		if util.Md5(password) != strings.Trim(user.Password, " ") {
+		if utils.Md5(password) != strings.Trim(user.Password, " ") {
 			c.History("密码错误", "")
 		}
 		user.LastIp = c.getClientIp()
@@ -112,7 +112,7 @@ func (c *AdminController) Index() {
 	c.Data["count"] = count
 	c.Data["list"] = list
 	c.Data["cate_id"] = cateId
-	c.Data["pagebar"] = util.NewPager(page, int(count), pagesize,
+	c.Data["pagebar"] = utils.NewPager(page, int(count), pagesize,
 		fmt.Sprintf("/admin/index.html?keyword=%s", keyword), true).ToString()
 	c.TplName = c.controllerName + "/list.html"
 }
@@ -148,7 +148,7 @@ func (c *AdminController) Upload() {
 			result["code"] = 1
 			result["message"] = "上传只能.jpg 或者png格式"
 		}
-		img = "static/upload/" + util.UniqueId() + "." + exStr
+		img = "static/upload/" + utils.UniqueId() + "." + exStr
 		err = c.SaveToFile("upFilename", img) // 保存位置在 static/upload, 没有文件夹要先创建
 		if err != nil {
 			result["code"] = 1
