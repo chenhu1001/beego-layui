@@ -23,7 +23,7 @@ archives:
     files:
       - conf/*
       - views/**/*
-      -
+      - static/**/*
 checksum:
   name_template: 'checksums.txt'
 snapshot:
