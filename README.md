@@ -7,8 +7,14 @@
 goreleaser init
 ```
 
-执行自动发布流程  
-Mac&Linux
+执行自动发布流程
+Mac
+```
+brew install goreleaser
+goreleaser --rm-dist
+goreleaser --snapshot --skip-publish --rm-dist
+```
+Linux
 ```
 ./goreleaser --rm-dist
 ./goreleaser --snapshot --skip-publish --rm-dist
